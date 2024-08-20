@@ -32,4 +32,4 @@ MAIL_FROM_NAME="${APP_NAME}"
 <p>Rodar o servidor.</p>
 <pre>> php artisan serve</pre>
 <br/>
-<p>Após isso a API deve estar funcionando normalmente. Um arquivo postman foi incluído na raíz do projeto exemplificando como acessar as rotas.</p>
+<p>Após isso a API deve estar funcionando normalmente. Uma pasta com arquivos postman foi incluída na raíz do projeto exemplificando como acessar as rotas.</p>
