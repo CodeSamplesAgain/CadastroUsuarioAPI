@@ -23,6 +23,10 @@ MAIL_ENCRYPTION=null
 MAIL_FROM_ADDRESS="hello@example.com"
 MAIL_FROM_NAME="${APP_NAME}"
 </pre>
+<p>Dada a possível complexidade de tornar possível o envio de emails utilizando a rede local, foi também disponibilizada uma rota que lista os pedidos de recuperação de senha com emails e códigos gerados.</p>
+<pre>http://127.0.0.1:8000/api/resets</pre>
+<p>Portanto, para acessar a página de recuperação, bastará acessar o link a seguir</p>
+<pre>http://localhost:5173/nova-senha/123123</pre>
 <p>Criar a estrutura de banco</p>
 <pre>> php artisan migrate --seed</pre>
 <p>Rodar o servidor</p>
