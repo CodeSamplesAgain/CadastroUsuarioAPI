@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\User\UserController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 Route::post('register', [RegisterController::class, 'register']);
@@ -23,4 +24,10 @@ Route::get('cities', [CityController::class, 'index']);
 Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('users', [UserController::class, 'index']);
+});
+
+
+Route::get('resets', function() {
+
+    return response()->json(DB::table('password_reset_tokens')->get());
 });

@@ -20,10 +20,11 @@ class UserService
         try {
 
             return QueryBuilder::for(User::class)
-                ->allowedIncludes('addresses')
+                ->allowedIncludes(['addresses', 'addresses.city', 'addresses.state'])
                 ->paginate();
         } catch (Exception $e) {
 
+            error_log($e->getMessage());
             return false;
         }
     }

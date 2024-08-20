@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Mail\ForgotPassword;
 use App\Models\Address;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -116,14 +117,14 @@ class AuthService
     /**
      * Resets user password.
      *
-     * @return bool
+     * @return object
      */
     public function newPassword(Request $request)
     {
         $validator = Validator::make($request->all(), [
 
             'code'                      => 'required',
-            'email'                     => 'required|email|unique:users',
+            'email'                     => 'required|email',
             'password'                  => 'required',
             'password_confirmation'     => 'required|same:password',
         ]);
@@ -139,7 +140,7 @@ class AuthService
 
         $reset = DB::table('password_reset_tokens')->where(['token' => $request->code]);
 
-        if ($reset->count())  {
+        if (!$reset->count())  {
 
             return (object)[
 
@@ -148,9 +149,22 @@ class AuthService
             ];
         }
 
-        User::where(['email' => $request->email])->update(['password' => bcrypt($request->password)]);
-        $reset->delete();
+        try {
 
-        return true;
+            User::where(['email' => $request->email])->update(['password' => bcrypt($request->password)]);
+            $reset->delete();
+
+            return (object)[
+
+                'success' => true
+            ];
+        } catch (Exception $e) {
+
+            return (object)[
+
+                'success' => false,
+                'errors' => [$e->getMessage()]
+            ];
+        }
     }
 }

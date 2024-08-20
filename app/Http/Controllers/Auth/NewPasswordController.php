@@ -15,13 +15,13 @@ class NewPasswordController extends BaseController
      */
     public function newPassword(Request $request, AuthService $authService)
     {
-        $success = $authService->forgotPassword($request);
+        $attempt = $authService->newPassword($request);
 
-        if ($success)  {
+        if ($attempt->success)  {
 
             return $this->sendResponse(null, 'Senha alterada com sucesso.');
         }
 
-        return $this->sendError('Não foi possível alterar a senha.');
+        return $this->sendError('Não foi possível alterar a senha.', $attempt->errors);
     }
 }
