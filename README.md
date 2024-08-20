@@ -2,7 +2,7 @@
 <p>API em laravel para um sistema simples que faz o controle de usuário englobando cadastro, login, recuperação de senha e listagem.</p>
 <h2>Instalação</h2>
 <p>Clonar o repositório.</p>
-<pre>> git clone https://github.com/CodeSamplesAgain/CadastroUsuarioUI.git</pre>
+<pre>> git clone https://github.com/CodeSamplesAgain/CadastroUsuarioAPI.git</pre>
 <p>Instalar as dependências usando composer.</p>
 <pre>> composer install</pre>
 <p>Renomear o arquivo <b>/.env.example</b> para <b>/.env</b> e colocar nele as credenciais de banco de dados e e-mail.</p>
