@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "226c31b1-2494-4ea2-8e30-d4b04c14026a",
+		"name": "Address",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12553148"
+	},
+	"item": [
+		{
+			"name": "Cep",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cep?cep=87050-700",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cep"
+					],
+					"query": [
+						{
+							"key": "cep",
+							"value": "87050-700"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "States",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Cities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cities",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cities"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
